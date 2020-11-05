@@ -63,7 +63,7 @@ basic_calculation()
     done
     #BPOSY array
     i=0
-    while [ $i -lt 4 ];
+    while [ $i -lt 3 ];
     do
         BPOSY[i]=$((i*(SCREENBLKSZY+1)))
         i=$((i+1))
