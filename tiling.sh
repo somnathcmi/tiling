@@ -1,14 +1,14 @@
 #! /bin/bash
 #===============
-HOFF=12
-VOFF=32 # offset
-FONTBLKX=12 # terminal font block size x
-FONTBLKY=26 # terminal font block size Y
-SCREENBLKSZX=52 # divide screen horizontally in 4 columns each of size 52 terminal columns
-SCREENBLKSZY=19 # divide screen vertically in 3 rows each of size 19 terminal rows
+HOFF=9
+VOFF=29 # offset
+FONTBLKX=7 # terminal font block size x
+FONTBLKY=15 # terminal font block size Y
+SCREENBLKSZX=67 # divide screen horizontally in 4 columns each of size 52 terminal columns
+SCREENBLKSZY=22 # divide screen vertically in 3 rows each of size 19 terminal rows
 
-BPOSX=(0 53 106 159) # x coordinate of screen block positions array
-BPOSY=(0 20 40) # y coordinate of screen block positions array
+BPOSX=(0 0 0 0) # x coordinate of screen block positions array
+BPOSY=(0 0 0) # y coordinate of screen block positions array
 
 # Window position and size as logical blocks
 #=================
@@ -52,6 +52,22 @@ p6=$6
 basic_calculation()
 {
     # Basic calculations =======================================
+
+
+    #BPOSX array
+    i=0
+    while [ $i -lt 4 ];
+    do
+        BPOSX[i]=$((i*(SCREENBLKSZX+1)))
+        i=$((i+1))
+    done
+    #BPOSY array
+    i=0
+    while [ $i -lt 4 ];
+    do
+        BPOSY[i]=$((i*(SCREENBLKSZY+1)))
+        i=$((i+1))
+    done
 
     #xpos array
     i=0
